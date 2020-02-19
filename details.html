@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Student details</h2>
+    <div id="res">
+
+    </div>
+</body>
+<script>
+    let data1=JSON.parse(localStorage.getItem("Data"));
+    let id1=Number(location.href.split("id=")[1]);
+    let target={};
+    
+    for(let std of data1){
+        if (std.id === id1){
+            target=std;
+            break;
+        }
+    }
+    console.log(target)
+    document.getElementById("res").innerHTML=`
+        <br>
+        <h2> ${target.name} </h2>
+        <br>
+        <img src="IMG/${target.img}" width="25%" height="25%">
+    `
+</script>
+</html>
